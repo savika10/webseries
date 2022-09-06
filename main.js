@@ -1,11 +1,34 @@
+//using ES5
+
 class WebSeries {
-  constructor(title, director, stars, streaminPlatform) {
+  constructor(title, director, stars, streamingPlatform) {
     this.title = title;
     this.director = director;
     this.stars = stars;
-    this.streaminPlatform = streaminPlatform;
+    this.streamingPlatform = streamingPlatform;
   }
 }
+
+class UI {
+  constructor() {}
+  addWebSeriesToList(WebSeries) {
+    console.log(WebSeries);
+  }
+}
+
+document
+  .getElementById("Web-series-form")
+  .addEventListener("submit", function (e) {
+    const tile = document.getElementById("title").value,
+      director = document.getElementById("director").value,
+      stars = document.getElementById("stars").value,
+      streamingPlatform = document.getElementById("streamingPlatform").value;
+    const WebSeries = new WebSeries(title, director, stars, streamingPlatform);
+    const ui = new UI();
+
+    ui.addWebSeriesToList(WebSeries);
+    e.preventDefault();
+  });
 
 /*function check() {
   document.getElementByTagName("form").value =
