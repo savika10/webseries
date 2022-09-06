@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--language to english-->
+  <head>
+    <title>MY WEB SERIES</title>
+    <meta charset="UTF-8" />
+    <!--all
+      charcters
+      used
+      by
+      english
+      language-->
+    <meta
+      name="description"
+      content="A web page to add and list you favourite webseries"
+    />
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--above line is for responsive design working-->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!--use only if there is a meaning here of navigation, do not have to use here-->
+        <h1>Web Series</h1>
+      </nav>
+    </header>
+    <!--<article>-->
+    <!--there can be a header element in article element-->
+    <div class="container">
+      <div class="container1">
+        <form name="Myform">
+          <h4>
+            TITLE:
+            <input type="text" name="name" value="" placeholder="Title Name" />
+          </h4>
+          <h4>
+            DIRECTORS:
+            <input
+              type="text"
+              name="name"
+              value=""
+              placeholder="Directors Name"
+            />
+          </h4>
+          <h4>
+            STARS:
+            <input type="text" name="name" value="" placeholder="Stars Name" />
+          </h4>
+          <h4>
+            STREAMING PLATFORM:
+            <select id="streamingPlatform" name="streamingPlatformDropdown">
+              <option value="none">none</option>
+              <option value="Netflix">Netflix</option>
+              <option value="Prime">Prime</option>
+              <option value="Viki">Viki</option>
+              <option value="Hotstar">Hotstar</option>
+            </select>
+          </h4>
+        </form>
+        <button>ADD</button>
+      </div>
+      <!--<aside>-->
+      <div class="card">
+        <span>
+          Title 1<br />
+          Directors <br />Stars<br />
+          Streaming platform
+        </span>
+        <span>Added material2</span>
+        <span>Added material3</span>
+        <span>Added material4</span>
+        <span>Added material5</span>
+        <span>Added material6</span>
+        <!--make card with list 1,2,3,4 using li element and set li:first-child{font style: bold} in CSS-->
+        <!--it will have inline boxes use :link pseudo class to style also use display: block-->
+      </div>
+    </div>
+    <!-- </aside>-->
+    <!--</article>-->
+  </body>
+</html>
