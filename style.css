@@ -40,18 +40,23 @@ div.container1 {
   justify-content: space-between;
   flex-direction: column;
 }
-button {
+
+.submit {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+input[type="submit"] {
   background-color: #1b4f72;
   color: white;
   padding: 1.2rem 2rem;
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
-  align-self: flex-end;
-  display: flex;
-  transition: background-color 1s;
-  transition: color 1s;
+  /* transition: background-color 1s;
+  transition: color 1s;*/
 }
+
 @media (min-width: 800px) {
   div.card {
     border-radius: 20px;
