@@ -13,6 +13,25 @@ class UI {
   constructor() {}
   addWebSeriesToList(WebSeries) {
     console.log(WebSeries);
+    const list = document.getElementById("Web-Series-list");
+    //create
+    const row = document.createElement("tr");
+    console.log(row);
+
+    //insert
+    row.innerHTML = `<td>${WebSeries.title}</td>
+    <td>${WebSeries.director}</td>
+    <td>${WebSeries.stars}</td>
+    <td>${WebSeries.streamingPlatform}</td>
+    <td><a href="#" class="delete"></a></td>`;
+
+    list.appendChild(row);
+  }
+  clearFields() {
+    document.getElementById("title").value = "";
+    document.getElementById("director").value = "";
+    document.getElementById("stars").value = "";
+    document.getElementById("streamingPlatform").value = "none";
   }
 }
 
@@ -28,6 +47,8 @@ document
 
     ui.addWebSeriesToList(WebSeries);
     e.preventDefault();
+    //clear fields
+    ui.clearFields();
   });
 
 /*function check() {
