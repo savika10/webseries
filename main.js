@@ -45,14 +45,6 @@ class WebSeries {
   }
 }
 
-const array = [
-  new WebSeries("x1", "y1", "z1", "s1"),
-  new WebSeries("x2", "y2", "z2", "s2"),
-  new WebSeries("x3", "y3", "z3", "s3"),
-  new WebSeries("x4", "y4", "z4", "s4"),
-  new WebSeries("x5", "y5", "z5", "s5"),
-  new WebSeries("x6", "y6", "z6", "s6"),
-];
 class UI {
   //constructor() {}
   addWebSeriesToList(WebSeries) {
@@ -90,14 +82,7 @@ class UI {
   }
 }
 
-for (var value of array) {
-  console.log(
-    value.title,
-    value.director,
-    value.stars,
-    value.streamingPlatform
-  );
-}
+let count = 0;
 function formsubmit(e) {
   e.preventDefault();
   const title = document.getElementById("title").value,
@@ -111,10 +96,16 @@ function formsubmit(e) {
     value.stars,
     value.streamingPlatform
   );
+  count++;
+
   const ui = new UI();
-  ui.addWebSeriesToList(value);
+  if (count <= 6) {
+    ui.addWebSeriesToList(value);
+  }
   //clear fields
   ui.clearFields();
+
+  console.log(count);
 }
 
 var form = document.querySelector("form");
@@ -127,153 +118,5 @@ document
     const ui = new UI();
     ui.deleteList(e.target);
     //alert
+    count--;
   });
-/*form.addEventListener(
-  "submit",
-  function debugEventStoppages({
-    methods = ["stopPropagation", "stopImmediatePropagation", "preventDefault"],
-    type = "log",
-    should = () => true,
-  } = {}) {
-    methods.forEach((method) => {
-      const original = Event.prototype[method];
-      Event.prototype[method] = function () {
-        // Test if we need do log/break for this particular event
-        if (should(this)) {
-          if (type == "break") {
-            debugger;
-          } else {
-            // Log which method was called, the event type,
-            // the event itself and a stacktrace to figure out what happened
-            console.log(
-              method,
-              this.type,
-              this,
-              (() => {
-                try {
-                  throw new Error();
-                } catch (e) {
-                  return e;
-                }
-              })()
-            );
-          }
-        }
-        return original.apply(this, arguments);
-      };
-    });
-  }
-);
-//document.addEventListener("submit", console.log, true);
-/*document.addEventListener(
-  "submit",
-  function (event) {
-    console.log(
-      event.type, // The type of the event
-      event.target, // The target of the event
-      event, // The event itself
-      (() => {
-        try {
-          throw new Error();
-        } catch (e) {
-          return e;
-        }
-      })() // A stacktrace to figure out what triggered the event
-    );
-  },
-  true
-);
-/*document.addEventListener(
-  "submit",
-  function () {
-    debugger;
-  },
-  true
-);
-document.addEventListener("submit", console.log, true);
-*/
-
-/*class UI extends WebSeries {
-  //constructor() {}
-  addWebSeriesToList(WebSeries) {
-    console.log(WebSeries);
-    const list = document.getElementById("Web-Series-list");
-    //create
-    const row = document.createElement("tr");
-    console.log(row);
-
-    //insert
-    row.innerHTML = `<td>${WebSeries.title}</td>
-    <td>${WebSeries.director}</td>
-    <td>${WebSeries.stars}</td>
-    <td>${WebSeries.streamingPlatform}</td>
-    <td><a href="#" class="delete"></a></td>`;
-
-    list.appendChild(row);
-  }
-  clearFields() {
-    document.getElementById("title").value = "";
-    document.getElementById("director").value = "";
-    document.getElementById("stars").value = "";
-    document.getElementById("streamingPlatform").value = "none";
-  }
-}
-
-document
-  .getElementById("Web-series-form")
-  .addEventListener("submit", function (e) {
-    const title = document.getElementById("title").value,
-      director = document.getElementById("director").value,
-      stars = document.getElementById("stars").value,
-      streamingPlatform = document.getElementById("streamingPlatform").value;
-    const WebSeries = new WebSeries(title, director, stars, streamingPlatform);
-    const ui = new UI();
-
-    ui.addWebSeriesToList(WebSeries);
-    e.preventDefault();
-    //clear fields
-    ui.clearFields();
-  });
-
-/*function check() {
-  document.getElementByTagName("form").value =
-    document.getElementById("addedMaterial").value;
-}*/
-/*val = window.navigator;
-console.log(val);
-const form = document.querySelector(".Myform");
-const formInput = document.querySelector(".card");
-//load all events
-
-//load all event listeners
-function loadEventListener() {
-  //add input form vent
-  form.addEventListener("button", addTask);
-}
-
-//add task
-function addTask(e) {
-  if (taskInput.value === "") {
-    alert("Add a task");
-  }
-  //create li element
-  const li = document.createElement("li");
-  //add class
-  li.className = "collection-item";
-  //create text node and append to li
-  li.appendChild(document.createTextNode(taskInput.value));
-  //create new link element for delete icon
-  const link = document.createElement("a");
-  //add class , secondary-content because we have to put it in right
-  link.className = "delete-item secondary-content";
-  //make a x mark icon in html with following class!!!!//
-  link.innerHTML = '<i class="fa fa-remove"></i>';
-  //append link to li
-  li.appendChild(link);
-
-  //append li to ul
-  formInput.appendChild(li);
-  e.preventDefault();
-}
-loadEventListener();
-*/
